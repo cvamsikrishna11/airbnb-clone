@@ -1,13 +1,16 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import HomeScreen from './src/screens/Home';
+import { View } from 'react-native';
+
+import Router from './src/navigation/Router';
 
 export default function App() {
   return (
     <View>
-      <HomeScreen />
-      <StatusBar style="auto" />
+      {/* <StatusBar barStyle="dark-content" /> */}
+      <Router />
+
     </View>
   );
 }
