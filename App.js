@@ -7,12 +7,9 @@ import Router from './src/navigation/Router';
 
 export default function App() {
   return (
-    <View>
-      {/* <StatusBar barStyle="dark-content" /> */}
+    <>
+      <StatusBar barStyle="dark-content" />
       <Router />
-
-    </View>
+    </>
   );
 }
-
-
