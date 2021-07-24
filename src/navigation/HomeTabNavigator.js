@@ -14,7 +14,7 @@ import ExploreNavigator from './ExploreNavigator';
 
 const Tab = createBottomTabNavigator();
 
-const HomeTabNavigator = () => {
+const HomeTabNavigator = (props) => {
     return (
         <Tab.Navigator tabBarOptions={{
             activeTintColor: '#f15454'

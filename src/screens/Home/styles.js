@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 500,
+        height: '100%',
         resizeMode: 'cover',
         justifyContent: 'center',
     },
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        top: 40,
+        top: 70,
         zIndex: 1,
     },
     searchButtonText: {

@@ -28,7 +28,7 @@ const GuestsScreen = () => {
                         <Pressable
                             onPress={() => setAdults(Math.max(0, audlts - 1))}
                             style={styles.button}>
-                            <Text style={{ fontSize: 20, color: '#4747447' }}>-</Text>
+                            <Text style={{ fontSize: 20, color: '#474747' }}>-</Text>
                         </Pressable>
 
                         <Text style={{ marginHorizontal: 20, fontSize: 16 }}>{audlts}</Text>
@@ -36,7 +36,7 @@ const GuestsScreen = () => {
                         <Pressable
                             onPress={() => setAdults(audlts + 1)}
                             style={styles.button}>
-                            <Text style={{ fontSize: 20, color: '#4747447' }}>+</Text>
+                            <Text style={{ fontSize: 20, color: '#474747' }}>+</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -52,7 +52,7 @@ const GuestsScreen = () => {
                         <Pressable
                             onPress={() => setChildren(Math.max(0, children - 1))}
                             style={styles.button}>
-                            <Text style={{ fontSize: 20, color: '#4747447' }}>-</Text>
+                            <Text style={{ fontSize: 20, color: '#474747' }}>-</Text>
                         </Pressable>
 
                         <Text style={{ marginHorizontal: 20, fontSize: 16 }}>{children}</Text>
@@ -60,7 +60,7 @@ const GuestsScreen = () => {
                         <Pressable
                             onPress={() => setChildren(children + 1)}
                             style={styles.button}>
-                            <Text style={{ fontSize: 20, color: '#4747447' }}>+</Text>
+                            <Text style={{ fontSize: 20, color: '#474747' }}>+</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -75,7 +75,7 @@ const GuestsScreen = () => {
                         <Pressable
                             onPress={() => setInfants(Math.max(0, infants - 1))}
                             style={styles.button}>
-                            <Text style={{ fontSize: 20, color: '#4747447' }}>-</Text>
+                            <Text style={{ fontSize: 20, color: '#474747' }}>-</Text>
                         </Pressable>
 
                         <Text style={{ marginHorizontal: 20, fontSize: 16 }}>{infants}</Text>
@@ -83,7 +83,7 @@ const GuestsScreen = () => {
                         <Pressable
                             onPress={() => setInfants(infants + 1)}
                             style={styles.button}>
-                            <Text style={{ fontSize: 20, color: '#4747447' }}>+</Text>
+                            <Text style={{ fontSize: 20, color: '#474747' }}>+</Text>
                         </Pressable>
                     </View>
                 </View>

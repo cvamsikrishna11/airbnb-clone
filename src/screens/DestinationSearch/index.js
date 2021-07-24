@@ -1,41 +1,47 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, FlatList, Pressable } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
+import React from 'react';
+import { View, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
-import searchResults from '../../../assets/data/search';
 import styles from './styles';
+import SuggestionRow from './SuggestionRow';
 
 const DestinationSearchScreen = (props) => {
-    const [inputText, setInputText] = useState('');
+
 
     const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
-            {/* input component */}
-            <TextInput
-                style={styles.textInput}
+
+            <GooglePlacesAutocomplete
                 placeholder='Where are you going?'
-                value={inputText}
-                onChangeText={setInputText}
+
+                onPress={(data, details = null) => {
+                    // 'details' is provided when fetchDetails = true
+                    console.log(data, details);
+                    navigation.navigate('Guests');
+
+                }}
+                fetchDetails
+                styles={{
+                    textInput: styles.textInput,
+                }}
+
+                query={{
+                    key: 'API KEY',
+                    language: 'en',
+                    types: '(cities)'
+                }}
+                suppressDefaultStyles
+                renderRow={(item) => <SuggestionRow item={item} />}
             />
 
-
-            {/* list of desitnations */}
-            <FlatList
-                data={searchResults}
-                renderItem={({ item }) => (
-                    <Pressable onPress={() => navigation.navigate('Guests')} style={styles.row}>
-                        <View style={styles.iconContainer}>
-                            <Entypo name="location-pin" size={30} color="black" />
-                        </View>
-                        <Text style={styles.locationText}>{item.description}</Text>
-                    </Pressable>
-                )}
-            />
         </View>
     )
 }
 
 export default DestinationSearchScreen;
+
+
+

@@ -24,8 +24,7 @@ const styles = StyleSheet.create({
     },
     oldPrice: {
         color: '#5b5b5b',
-        textDecorationLine: 'line-through',
-        // marginRight: 5
+        textDecorationLine: 'line-through'
 
     },
     newPrice: {

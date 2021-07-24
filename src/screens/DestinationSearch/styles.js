@@ -2,11 +2,14 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        margin: 20,
-        marginTop: 30,
+        padding: 20,
+        // marginTop: 30,
+        height: '100%',
+        backgroundColor: 'white'
 
     },
     textInput: {
+
         fontSize: 20,
         marginBottom: 20,
 
