@@ -29,7 +29,7 @@ const DestinationSearchScreen = (props) => {
                 }}
 
                 query={{
-                    key: 'API KEY',
+                    key: 'GOOGLE_MAPS_KEY',
                     language: 'en',
                     types: '(cities)'
                 }}
