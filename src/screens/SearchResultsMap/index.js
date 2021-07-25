@@ -4,6 +4,7 @@ import MapView from 'react-native-maps';
 
 import places from '../../../assets/data/feed';
 import CustomMarker from '../../components/CustomMarker';
+import PostCarousleItem from '../../components/PostCarouselItem';
 
 const SearchResultsMap = (props) => {
 
@@ -30,6 +31,9 @@ const SearchResultsMap = (props) => {
                 />)
                 )}
             </MapView>
+            <View style={{ position: 'absolute', bottom: 30 }}>
+                <PostCarousleItem post={places[0]} />
+            </View>
         </View>
     );
 }
