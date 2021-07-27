@@ -13,3 +13,5 @@ web-build/
 .DS_Store
 
 .expo-shared
+./src/screens/DestinationSearch/index.js
+src/screens/DestinationSearch/index.js
