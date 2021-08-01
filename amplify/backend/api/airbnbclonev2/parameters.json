@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "airbnbclonev2",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authairbnbclonev2ac87d027",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

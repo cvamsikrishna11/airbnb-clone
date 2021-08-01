@@ -1,14 +1,17 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import PostComponent from '../../components/Post';
-import feed from '../../../assets/data/feed';
 
 const SearchResultsScreen = (props) => {
+
+    const { posts } = props;
+    
+
     return (
         <>
             <FlatList
-                data={feed}
+                data={posts}
                 renderItem={({ item }) => <PostComponent post={item} />}
             ></FlatList>
         </>

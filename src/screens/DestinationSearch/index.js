@@ -20,7 +20,7 @@ const DestinationSearchScreen = (props) => {
                 onPress={(data, details = null) => {
                     // 'details' is provided when fetchDetails = true
                     // console.log(data, details);
-                    navigation.navigate('Guests');
+                    navigation.navigate('Guests', { viewport: details.geometry.viewport });
 
                 }}
                 fetchDetails
@@ -29,9 +29,14 @@ const DestinationSearchScreen = (props) => {
                 }}
 
                 query={{
-                    key: 'GOOGLE_MAPS_KEY',
+                    key: 'GOOGLE_PLACES_API_KEY',
                     language: 'en',
                     types: '(cities)'
+                }}
+                requestUrl={{
+                    useOnPlatform: 'web', // or "all"
+                    url:
+                        'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api', // or any proxy server that hits https://maps.googleapis.com/maps/api
                 }}
                 suppressDefaultStyles
                 renderRow={(item) => <SuggestionRow item={item} />}

@@ -4,13 +4,16 @@ import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
+const days = 7;
 
 const PostComponent = (props) => {
+    
     const post = props.post;
 
     const navigation = useNavigation();
 
     const goToPostPage = () => {
+        
         navigation.navigate('Post', { postId: post.id });
     }
 
@@ -36,7 +39,7 @@ const PostComponent = (props) => {
             </Text>
 
             {/* Total price */}
-            <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
+            <Text style={styles.totalPrice}>${post.newPrice * days} total</Text>
         </Pressable>
     )
 }

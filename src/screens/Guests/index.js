@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import styles from './styles';
 
 
 const GuestsScreen = () => {
-    const [audlts, setAdults] = useState(0);
+
+    const route = useRoute();
+
+
+    const [adults, setAdults] = useState(0);
 
     const [children, setChildren] = useState(0);
 
@@ -26,15 +30,15 @@ const GuestsScreen = () => {
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
                         <Pressable
-                            onPress={() => setAdults(Math.max(0, audlts - 1))}
+                            onPress={() => setAdults(Math.max(0, adults - 1))}
                             style={styles.button}>
                             <Text style={{ fontSize: 20, color: '#474747' }}>-</Text>
                         </Pressable>
 
-                        <Text style={{ marginHorizontal: 20, fontSize: 16 }}>{audlts}</Text>
+                        <Text style={{ marginHorizontal: 20, fontSize: 16 }}>{adults}</Text>
 
                         <Pressable
-                            onPress={() => setAdults(audlts + 1)}
+                            onPress={() => setAdults(adults + 1)}
                             style={styles.button}>
                             <Text style={{ fontSize: 20, color: '#474747' }}>+</Text>
                         </Pressable>
@@ -95,7 +99,11 @@ const GuestsScreen = () => {
                         navigation.navigate('Home', {
                             screen: 'Explore',
                             params: {
-                                screen: 'SearchResults'
+                                screen: 'SearchResults',
+                                params: {
+                                    guests: adults + children,
+                                    viewport: route.params.viewport,
+                                }
                             }
                         })
                     }}

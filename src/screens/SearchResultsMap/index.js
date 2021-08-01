@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FlatList, View, useWindowDimensions } from 'react-native';
 import MapView from 'react-native-maps';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 
-import places from '../../../assets/data/feed';
 import CustomMarker from '../../components/CustomMarker';
 import PostCarousleItem from '../../components/PostCarouselItem';
 
 const SearchResultsMap = (props) => {
 
+    const { posts } = props;    
+
     const [selectedPlaceId, setSelectedPlaceId] = useState(null);
+
 
     const flatList = useRef();
 
@@ -31,13 +35,13 @@ const SearchResultsMap = (props) => {
         if (!selectedPlaceId || !flatList) {
             return;
         }
-        const index = places.findIndex(place => place.id === selectedPlaceId);
+        const index = posts.findIndex(place => place.id === selectedPlaceId);
         flatList.current.scrollToIndex({ index })
 
-        const selectedPlace = places[index];
+        const selectedPlace = posts[index];
         const region = {
-            latitude: selectedPlace.coordinate.latitude,
-            longitude: selectedPlace.coordinate.longitude,
+            latitude: selectedPlace.latitude,
+            longitude: selectedPlace.longitude,
             latitudeDelta: 0.8,
             longitudeDelta: 0.8,
         }
@@ -57,11 +61,11 @@ const SearchResultsMap = (props) => {
                     longitudeDelta: 0.8,
                 }}
             >
-                {places.map(place =>
+                {posts.map(place =>
                 (<CustomMarker
                     isSelected={place.id === selectedPlaceId}
-                    key={place.id}
-                    coordinate={place.coordinate}
+                    key={uuidv4()}
+                    coordinate={{ latitude: place.latitude, longitude: place.longitude }}
                     price={place.newPrice}
                     onPress={() => setSelectedPlaceId(place.id)}
                 />)
@@ -70,7 +74,7 @@ const SearchResultsMap = (props) => {
             <View style={{ position: 'absolute', bottom: 10 }}>
                 <FlatList
                     ref={flatList}
-                    data={places}
+                    data={posts}
                     renderItem={({ item }) => <PostCarousleItem post={item} />}
                     horizontal
                     showsHorizontalScrollIndicator={false}
