@@ -1,7 +1,7 @@
 Airbnb clone
 ===
 
-This project was bootstrapped with React Native + Expo + AWS Amplify.
+This project was bootstrapped with React Native + Expo + AWS Amplify + GraphQL
 
 ## Setup
 
